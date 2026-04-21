@@ -345,14 +345,22 @@ function Particle({ top, x, delay, dur }: { top: string; x: string; delay: numbe
 
 
 
-
 /* ══════════════════════════════════════════════════════════════════
    ZONE HOTSPOT — dot + invisible bridge + card in one hover system
 ══════════════════════════════════════════════════════════════════ */
 function ZoneHotspot({ zone, index }: { zone: { name: string; x: number; y: number }; index: number }) {
   const [isActive, setIsActive] = useState(false);
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  
+  const [isMobile, setIsMobile] = useState(false);
 
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768);
+    check();
+
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
   const handleEnter = () => {
     if (timer.current) clearTimeout(timer.current);
     setIsActive(true);
@@ -443,32 +451,46 @@ function ZoneHotspot({ zone, index }: { zone: { name: string; x: number; y: numb
         />
       )}
 
-      {/* Dot */}
-      <div
-        onMouseEnter={handleEnter}
-        onMouseLeave={handleLeave}
-        style={{
-          position:                "absolute",
-          left:                    `${zone.x}%`,
-          top:                     `${zone.y}%`,
-          transform:               isActive ? "translate(-50%,-50%) scale(1.4)" : "translate(-50%,-50%) scale(1)",
-          width:                   "16px",
-          height:                  "16px",
-          borderRadius:            "50%",
-          background:              isActive ? "rgba(0,194,168,0.95)" : "rgba(0,194,168,0.50)",
-          boxShadow:               isActive ? "0 0 28px 8px rgba(0,194,168,0.72)" : "0 0 20px rgba(0,194,168,0.6)",
-          cursor:                  "pointer",
-          transition:              "transform 0.2s ease-in-out, background 0.2s ease-in-out, box-shadow 0.2s ease-in-out",
-          animationName:           isActive ? "none" : "dotEnter, hotspotPulse",
-          animationDuration:       "0.5s, 2.4s",
-          animationDelay:          `${index * 0.04}s, ${0.5 + index * 0.04}s`,
-          animationTimingFunction: "cubic-bezier(0.34,1.56,0.64,1), ease-in-out",
-          animationIterationCount: "1, infinite",
-          animationFillMode:       "both, none",
-          pointerEvents:           "auto",
-          zIndex:                  7,
-        }}
-      />
+   {/* Dot */}
+<div
+  onMouseEnter={handleEnter}
+  onMouseLeave={handleLeave}
+  style={{
+    position: "absolute",
+    left: `${zone.x}%`,
+    top: `${zone.y}%`,
+
+    transform: isActive
+      ? `translate(-50%,-50%) scale(${isMobile ? 1.2 : 1.4})`
+      : "translate(-50%,-50%) scale(1)",
+
+    width: isMobile ? "10px" : "16px",
+    height: isMobile ? "10px" : "16px",
+
+    borderRadius: "50%",
+    background: isActive
+      ? "rgba(0,194,168,0.95)"
+      : "rgba(0,194,168,0.50)",
+
+    boxShadow: isActive
+      ? "0 0 28px 8px rgba(0,194,168,0.72)"
+      : "0 0 20px rgba(0,194,168,0.6)",
+
+    cursor: "pointer",
+    transition:
+      "transform 0.2s ease-in-out, background 0.2s ease-in-out, box-shadow 0.2s ease-in-out",
+
+    animationName: isActive ? "none" : "dotEnter, hotspotPulse",
+    animationDuration: "0.5s, 2.4s",
+    animationDelay: `${index * 0.04}s, ${0.5 + index * 0.04}s`,
+    animationTimingFunction: "cubic-bezier(0.34,1.56,0.64,1), ease-in-out",
+    animationIterationCount: "1, infinite",
+    animationFillMode: "both, none",
+
+    pointerEvents: "auto",
+    zIndex: 7,
+  }}
+/>
 
       {isActive && zoneData && (
         <>
@@ -488,20 +510,43 @@ function ZoneHotspot({ zone, index }: { zone: { name: string; x: number; y: numb
           />
 
           {/* Panel — tipografía pura, sin card */}
-          <div
-            style={{
-              position:      "absolute",
-              top:           `${zone.y}%`,
-              left:          cardOnLeft ? "1%" : "68%",
-              transform:     "translateY(-50%)",
-              width:         "290px",
-              pointerEvents: "auto",
-              zIndex:        10,
-              animation:     "panelFadeIn 0.30s cubic-bezier(0.16,1,0.3,1) forwards",
-            }}
-            onMouseEnter={handleEnter}
-            onMouseLeave={handleLeave}
-          >
+<div
+  style={{
+    position: "absolute",
+
+    top: isMobile ? `calc(${zone.y}% + 12px)` : `${zone.y}%`,
+
+    left: isMobile
+      ? "5%"
+      : (cardOnLeft ? "1%" : "68%"),
+
+    right: isMobile ? "5%" : "auto",  
+
+    transform: isMobile
+      ? "none"
+      : "translateY(-50%)",
+
+    width: isMobile ? "90vw" : "290px",
+    maxWidth: "340px",
+
+    pointerEvents: "auto",
+    zIndex: 10,
+
+    background: isMobile ? "rgba(0, 20, 18, 0.75)" : "transparent",
+    backdropFilter: isMobile ? "blur(20px)" : "none",
+    WebkitBackdropFilter: isMobile ? "blur(20px)" : "none",
+
+    border: isMobile ? "1px solid rgba(0,194,168,0.25)" : "none",
+    borderRadius: isMobile ? "16px" : "0px",
+    padding: isMobile ? "18px" : "0px",
+
+    boxShadow: isMobile ? "0 20px 60px rgba(0,0,0,0.6)" : "none",
+
+    animation: "panelFadeIn 0.30s cubic-bezier(0.16,1,0.3,1) forwards",
+  }}
+  onMouseEnter={handleEnter}
+  onMouseLeave={handleLeave}
+>
             {/* Category */}
             <p style={{
               margin:        "0 0 7px 0",
@@ -939,7 +984,7 @@ export default function TratamientosPage() {
       {/* ════════════════════════════════════════════════════════
           DESKTOP MAP  (hidden on mobile)
       ════════════════════════════════════════════════════════ */}
-      <div className="hidden md:block -mt-58">
+      <div className="block -mt-20 md:-mt-58">
         <div ref={mapRef} className="relative">
     
 
@@ -1035,24 +1080,7 @@ export default function TratamientosPage() {
         </div>
       </div>
 
-      {/* ════════════════════════════════════════════════════════
-          MOBILE LIST  (hidden on desktop)
-      ════════════════════════════════════════════════════════ */}
-      <div className="block md:hidden px-5 pb-16">
-        <p className="text-[10px] uppercase tracking-[0.38em] text-white/25 mb-6">
-          Seleccioná una zona
-        </p>
-        <div className="space-y-2.5">
-          {Object.keys(ZONES).map(zoneKey => (
-            <MobileZoneItem
-              key={zoneKey}
-              zoneKey={zoneKey}
-              isOpen={mobileOpen === zoneKey}
-              onToggle={() => setMobileOpen(prev => prev === zoneKey ? null : zoneKey)}
-            />
-          ))}
-        </div>
-      </div>
+    
 
       {/* ── CTA final ── */}
       <div className="border-t border-white/[0.05]">

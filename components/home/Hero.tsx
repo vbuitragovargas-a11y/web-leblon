@@ -7,24 +7,24 @@ export default function Hero() {
     <section className="relative w-full min-h-screen pt-28 pb-16 overflow-hidden bg-[#061311]">
 
       {/* IMAGEN */}
-      <div className="absolute right-0 top-[6%] h-[115%] w-[65%] z-[1] overflow-hidden">
+      <div className="absolute inset-0 z-[1]">
         <img
           src="/Leblon inicio.png"
           alt="Leblon Clinique"
-          className="h-full w-full object-cover object-[70%_41%]"
+          className="absolute inset-0 w-full h-full object-cover object-[center_top] md:object-[70%_41%]"
         />
       </div>
 
-      {/* FADE IZQUIERDO */}
+      {/* FADE */}
       <div className="absolute inset-0 z-[2] pointer-events-none bg-gradient-to-r from-[#061311] via-[#061311]/90 to-transparent" />
 
       {/* CONTENIDO */}
-      <div className="relative z-20 max-w-7xl mx-auto px-6 flex items-center min-h-[80vh]">
-        <div className="max-w-2xl lg:max-w-3xl flex flex-col gap-6">
+      <div className="relative z-20 max-w-7xl mx-auto px-4 md:px-6 flex items-center min-h-[80vh]">
+        <div className="w-full max-w-2xl lg:max-w-3xl flex flex-col gap-6">
 
           {/* H1 */}
           <h1
-            className="fade-up text-white text-left text-4xl tracking-normal md:text-5xl md:tracking-tight lg:text-6xl leading-[1.05] font-light max-w-4xl"
+            className="fade-up text-white text-left text-3xl md:text-5xl lg:text-6xl tracking-normal md:tracking-tight leading-[1.1] md:leading-[1.05] font-light max-w-[16ch] md:max-w-4xl"
             style={{ animationDelay: "0.1s" }}
           >
             Botox, ácido hialurónico{" "}
@@ -47,7 +47,7 @@ export default function Hero() {
 
           {/* Cinta de servicios */}
           <div
-            className="fade-up overflow-hidden relative max-w-[70%]"
+            className="fade-up overflow-hidden relative max-w-full md:max-w-[70%]"
             style={{
               animationDelay: "0.32s",
               maskImage: "linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)",
