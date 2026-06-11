@@ -4,25 +4,22 @@ export default function Hero() {
   const WA = "https://wa.me/TODO_WHATSAPP";
 
   return (
-    <section className="relative w-full min-h-screen pt-28 pb-16 overflow-hidden bg-[#061410]">
+    <section className="relative w-full min-h-screen pt-28 pb-16 overflow-hidden bg-[#061311]">
 
-      {/* IMAGEN — alineada a la derecha */}
-      <div
-        className="absolute inset-0 z-[1] bg-no-repeat bg-cover"
-        style={{
-          backgroundImage: "url('/images/leblon-hero-woman.png')",
-          backgroundPosition: "right center",
-        }}
-      />
+      {/* IMAGEN */}
+      <div className="absolute inset-0 z-[1]">
+        <img
+          src="/Leblon inicio.png"
+          alt="Leblon Clinique"
+          className="absolute inset-0 w-full h-full object-cover object-[center_top] md:object-[70%_41%]"
+        />
+      </div>
 
-      {/* OVERLAY OSCURO general */}
-      <div className="absolute inset-0 z-[2] pointer-events-none bg-[#001410]/60" />
-
-      {/* FADE lateral — protege el texto a la izquierda */}
-      <div className="absolute inset-0 z-[3] pointer-events-none bg-gradient-to-r from-[#061410] via-[#061410]/80 to-transparent" />
+      {/* FADE */}
+      <div className="absolute inset-0 z-[2] pointer-events-none bg-gradient-to-r from-[#061311] via-[#061311]/90 to-transparent" />
 
       {/* CONTENIDO */}
-      <div className="relative z-[20] max-w-7xl mx-auto px-4 md:px-6 flex items-center min-h-[80vh]">
+      <div className="relative z-20 max-w-7xl mx-auto px-4 md:px-6 flex items-center min-h-[80vh]">
         <div className="w-full max-w-2xl lg:max-w-3xl flex flex-col gap-6">
 
           {/* H1 */}
@@ -39,11 +36,11 @@ export default function Hero() {
           {/* Subtítulo + autoridad */}
           <p
             className="fade-up text-[14px] leading-[1.8]"
-            style={{ color: "rgba(255,255,255,0.72)", animationDelay: "0.22s", maxWidth: "36ch" }}
+            style={{ color: "rgba(255,255,255,0.42)", animationDelay: "0.22s", maxWidth: "36ch" }}
           >
             Armonización facial con resultados reales y progresivos.
             <br />
-            <span style={{ color: "rgba(255,255,255,0.50)" }}>
+            <span style={{ color: "rgba(255,255,255,0.28)" }}>
               Médicos especialistas en armonización facial.
             </span>
           </p>
@@ -118,7 +115,7 @@ export default function Hero() {
 
             <p
               className="text-[10px] tracking-[0.2em]"
-              style={{ color: "rgba(255,255,255,0.45)" }}
+              style={{ color: "rgba(255,255,255,0.28)" }}
             >
               Asesoramiento personalizado por WhatsApp · Respuesta en minutos
             </p>
