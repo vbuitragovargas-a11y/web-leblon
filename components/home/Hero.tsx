@@ -9,7 +9,7 @@ export default function Hero() {
       {/* IMAGEN */}
       <div className="absolute inset-0 z-[1]">
         <img
-          src="/Leblon inicio.png"
+          src="/leblon-hero-woman.png"
           alt="Leblon Clinique"
           className="absolute inset-0 w-full h-full object-cover object-[center_top] md:object-[70%_41%]"
         />
