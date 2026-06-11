@@ -1,7 +1,7 @@
 "use client";
 
 export default function Hero() {
-  const WA = "https://wa.me/TODO_WHATSAPP";
+  const WA = "https://wa.me/5491167944006?text=Hola,%20quiero%20informaci%C3%B3n%20sobre%20los%20tratamientos%20de%20Leblon%20Clinique";
 
   return (
     <section className="relative w-full min-h-screen pt-28 pb-16 overflow-hidden bg-[#061311]">

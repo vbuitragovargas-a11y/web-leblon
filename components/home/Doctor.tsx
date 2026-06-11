@@ -105,7 +105,7 @@ export default function Doctor() {
           {/* CTA */}
           <div className="flex flex-col gap-1.5">
             <a
-              href="https://wa.me/5491100000000"
+              href="https://wa.me/5491167944006?text=Hola,%20quiero%20informaci%C3%B3n%20sobre%20los%20tratamientos%20de%20Leblon%20Clinique"
               target="_blank"
               rel="noopener noreferrer"
               className="self-start bg-white text-black text-sm font-medium tracking-wide

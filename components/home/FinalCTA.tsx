@@ -1,6 +1,6 @@
 "use client";
 export default function FinalCTA() {
-  const WA = "https://wa.me/TODO_WHATSAPP";
+  const WA = "https://wa.me/5491167944006?text=Hola,%20quiero%20informaci%C3%B3n%20sobre%20los%20tratamientos%20de%20Leblon%20Clinique";
 
   return (
     <section className="px-6 lg:px-12 pt-8 pb-0 max-w-6xl mx-auto">

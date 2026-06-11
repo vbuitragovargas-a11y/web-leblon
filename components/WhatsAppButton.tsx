@@ -1,6 +1,6 @@
 "use client";
 
-const WA = "https://wa.me/TODO_WHATSAPP";
+const WA = "https://wa.me/5491167944006?text=Hola,%20quiero%20informaci%C3%B3n%20sobre%20los%20tratamientos%20de%20Leblon%20Clinique";
 
 export default function WhatsAppButton() {
   return (
