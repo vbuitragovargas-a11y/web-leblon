@@ -15,6 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.leblonclinique.com"),
   title: "Leblon Clinique | Medicina Estética Avanzada",
   description:
     "Clínica especializada en medicina estética, rejuvenecimiento facial y tratamientos de última generación en Recoleta y Palermo.",
@@ -24,7 +25,7 @@ export const metadata: Metadata = {
       "Clínica especializada en medicina estética, rejuvenecimiento facial y tratamientos de última generación en Recoleta y Palermo.",
     images: [
       {
-        url: "/leblon-hero-woman.png",
+        url: "https://www.leblonclinique.com/leblon-hero-woman.png",
         width: 1672,
         height: 941,
         alt: "Leblon Clinique",
@@ -37,7 +38,7 @@ export const metadata: Metadata = {
     title: "Leblon Clinique | Medicina Estética Avanzada",
     description:
       "Clínica especializada en medicina estética, rejuvenecimiento facial y tratamientos de última generación en Recoleta y Palermo.",
-    images: ["/leblon-hero-woman.png"],
+    images: ["https://www.leblonclinique.com/leblon-hero-woman.png"],
   },
   other: {
     "facebook-domain-verification": "areo1m5smal9k891kw5rwu60e6igfg",
