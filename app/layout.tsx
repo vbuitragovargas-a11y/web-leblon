@@ -25,7 +25,7 @@ export const metadata: Metadata = {
       "Clínica especializada en medicina estética, rejuvenecimiento facial y tratamientos de última generación en Recoleta y Palermo.",
     images: [
       {
-        url: "https://www.leblonclinique.com/leblon-hero-woman.png",
+        url: "https://www.leblonclinique.com/leblon-og.jpg",
         width: 1672,
         height: 941,
         alt: "Leblon Clinique",
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     title: "Leblon Clinique | Medicina Estética Avanzada",
     description:
       "Clínica especializada en medicina estética, rejuvenecimiento facial y tratamientos de última generación en Recoleta y Palermo.",
-    images: ["https://www.leblonclinique.com/leblon-hero-woman.png"],
+    images: ["https://www.leblonclinique.com/leblon-og.jpg"],
   },
   other: {
     "facebook-domain-verification": "areo1m5smal9k891kw5rwu60e6igfg",
